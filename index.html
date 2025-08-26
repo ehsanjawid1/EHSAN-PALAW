@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رستوران احسان پلو | طعم‌های اصیل افغانی</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #c0392b;
+            --secondary: #2c0085;
+            --accent: #d40000;
+            --light: #fef9e7;
+            --dark: #001b36;
+            --text: #a00000;
+            --shadow: 0 3px 10px rgba(79, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazir', Tahoma, sans-serif;
+        }
+
+        body {
+            background-color: #8e0000;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* هدر */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-left: 10px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin: 0 10px;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* بخش اصلی */
+        .hero {
+            height: 90vh;
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('https://i.postimg.cc/YS1PDYjP/atiq3.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+        }
+
+
+
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(38, 0, 127, 0.4);
+            background: var(--secondary);
+        }
+
+        /* بخش منو */
+        .menu-section {
+            padding: 100px 0;
+            background: #fffdfd;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-img-container {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .menu-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .menu-item:hover .menu-img {
+            transform: scale(1.1);
+        }
+
+        .menu-content {
+            padding: 20px;
+        }
+
+        .menu-item-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .menu-item-desc {
+            color: #040400;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .menu-price {
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-price i {
+            margin-left: 5px;
+        }
+
+        /* بخش تماس */
+        .contact {
+            padding: 70px 0;
+            background: var(--light);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 12px;
+            color: white;
+        }
+
+        .contact-details h3 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(230, 126, 34, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+        }
+
+        /* فوتر */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 0 15px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .footer-logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo i {
+            margin-left: 8px;
+            color: var(--accent);
+        }
+
+        .footer-desc {
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+        }
+
+        .footer-title {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            color: #aaa;
+        }
+
+        /* بخش توسعه‌دهنده - حالت افقی */
+        .developer-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 30px 0;
+            color: white;
+        }
+
+        .developer-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .developer-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .developer-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .developer-details {
+            text-align: right;
+        }
+
+        .developer-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .developer-contact {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .developer-contact a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: var(--transition);
+            padding: 5px 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+
+        .developer-contact a:hover {
+            color: var(--light);
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* رسپانسیو */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 60px;
+                right: -100%;
+                background: var(--primary);
+                width: 80%;
+                height: calc(100vh - 60px);
+                flex-direction: column;
+                padding: 20px;
+                transition: 0.3s;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-menu li {
+                margin: 10px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .menu-img-container {
+                height: 200px;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .developer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .developer-info {
+                flex-direction: column;
+            }
+
+            .developer-details {
+                text-align: center;
+            }
+
+            .developer-contact {
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .menu-item-title {
+                font-size: 1.2rem;
+            }
+
+            .developer-contact {
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .developer-contact a {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- هدر و ناوبری -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-utensils"></i>
+                    احسان پلو
+                </div>
+
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home">خانه</a></li>
+                    <li><a href="#menu">منو</a></li>
+                    <li><a href="#contact">تماس</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- بخش اصلی -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">رستورانت احسان پلو</h1>
+            <p class="hero-subtitle">تجربه طعم‌های اصیل و لذیذ افغانی در دل مزارشریف</p>
+            <a href="#menu" class="btn">مشاهده منو</a>
+        </div>
+    </section>
+
+    <!-- بخش منو -->
+    <section class="menu-section" id="menu">
+        <div class="container">
+            <h2 class="section-title">منوی غذایی</h2>
+            <div class="menu-grid">
+                <!-- قابلی پلو -->
+                <div class="menu-item">
+                    <div class="menu-img-container">
+                        <img src="https://i.postimg.cc/WpQT4K7s/image.jpg" alt="قابلی پلو" class="menu-img">
+                    </div>
+                    <div class="menu-content">
+                        <h4 class="menu-item-title">ماهیچه پلو مخصوص</h4>
+                        <p class="menu-item-desc">🥘 ماهیجه‌پلو مخصوص ما، بهترین انتخاب برای مهمانی و دسترخوان
+                            خانواده‌گی!</p>
+                        <div class="menu-price">
+                            <i class="fas fa-tag"></i>
+                            400 افغانی
+                        </div>
+                    </div>
+                </div>
+
+                <!-- کباب گوشت -->
+                <div class="menu-item">
+                    <div class="menu-img-container">
+                        <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
+                            alt="کباب گوشت" class="menu-img">
+                    </div>
+                    <div class="menu-content">
+                        <h3 class="menu-item-title">کباب گوشت مخصوص</h3>
+                        <p class="menu-item-desc">گوشت کوساله تازه با مساله مخصوص، به سیخ کشیده شده و روی ذغال پخته شده.
+                        </p>
+                        <div class="menu-price">
+                            <i class="fas fa-tag"></i>
+                            170 افغانی
+                        </div>
+                    </div>
+                </div>
+
+                <!-- کباب شامی -->
+                <div class="menu-item">
+                    <div class="menu-img-container">
+                        <img src="https://i.postimg.cc/28xDk59f/image.png" alt="کباب شامی" class="menu-img">
+                    </div>
+                    <div class="menu-content">
+                        <h3 class="menu-item-title">کباب شامی مخصوص</h3>
+                        <p class="menu-item-desc">امروز نوبت کباب شامی داغ و خوش‌مزه است 🍢🔥
+
+                            با گوشت تازه، پیاز و مساله اصیل وطنی 🇦🇫👌
+                            روی آتش ذغالی سرخ میشه.  😍.</p>
+                        <div class="menu-price">
+                            <i class="fas fa-tag"></i>
+                            170 افغانی
+                        </div>
+                    </div>
+                </div>
+
+                <!-- کباب مرغ -->
+                <div class="menu-item">
+                    <div class="menu-img-container">
+                        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                            alt="کباب شامی" class="menu-img">
+                    </div>
+                    <div class="menu-content">
+                        <h3 class="menu-item-title">کباب مرغ مخصوص</h3>
+                        <p class="menu-item-desc"> کباب مرغ ذغالی آماده داریم 🍗🔥
+
+                            مرغ تازه، مخلوط شده با مساله مخصوص وطنی 🇦🇫👌
+                            روی آتش ذغال سرخ میشه، 😍
+
+                            👉 یک‌بار امتحان کو، همیشه یاد می‌کنی!</p>
+                        <div class="menu-price">
+                            <i class="fas fa-tag"></i>
+                            200 افغانی
+                        </div>
+                    </div>
+                </div>
+
+                <!-- فانتا -->
+                <div class="menu-item">
+                    <div class="menu-img-container">
+                        <img src="https://i.postimg.cc/LsZRpFqd/FANTA1.png" alt="فانتا" class="menu-img">
+                    </div>
+                    <div class="menu-content">
+                        <h3 class="menu-item-title">فانتا</h3>
+                        <p class="menu-item-desc">فانتا،شریک لحظه های دوستانه و مهمانی های شاد شماست..</p>
+                        <div class="menu-price">
+                            <i class="fas fa-tag"></i>
+                            30 افغان
+                        </div>
+                    </div>
+                </div>
+
+                <!-- سوپر کولا / SUPER COLA -->
+                <div class="menu-item">
+                    <div class="menu-img-container">
+                        <img src="https://i.postimg.cc/j2dVnbyv/super.jpg" alt="Super Cola" class="menu-img">
+                    </div>
+                    <div class="menu-content">
+                        <h3 class="menu-item-title">سوپر کولا | SUPER COLA</h3>
+                        <p class="menu-item-desc">نوشابه گازدار سرد با طعم اصلی و منحصر به فرد.</p>
+                        <div class="menu-price">
+                            <i class="fas fa-tag"></i>
+                            30 افغانی
+                        </div>
+                    </div>
+                </div>
+
+                <!-- گلدن لایف / GFOLDEN LIFE -->
+                <div class="menu-item">
+                    <div class="menu-img-container">
+                        <img src="https://i.postimg.cc/1XZtkfhX/golden.jpg" alt="Golden Life" class="menu-img">
+                    </div>
+                    <div class="menu-content">
+                        <h3 class="menu-item-title">گلدن لایف | GFOLDEN LIFE</h3>
+                        <p class="menu-item-desc">نوشابه گازدار سرد با طعم لیمو و مرکبات.</p>
+                        <div class="menu-price">
+                            <i class="fas fa-tag"></i>
+                            30 افغانی
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- آب معدنی / Mineral Water -->
+                <div class="menu-item">
+                    <div class="menu-img-container">
+                        <img src="https://i.postimg.cc/d15HXTTm/maihan.jpg" alt="Mineral Water" class="menu-img">
+                    </div>
+                    <div class="menu-content">
+                        <h3 class="menu-item-title">آب معدنی | Mineral Water</h3>
+                        <p class="menu-item-desc">آب معدنی سرد و گوارا .</p>
+                        <div class="menu-price">
+                            <i class="fas fa-tag"></i>
+                            10 افغانی
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- دوغ -->
+                <div class="menu-item">
+                    <div class="menu-img-container">
+                        <img src="https://i.postimg.cc/1tByWcn4/DOGH1.jpg" alt="دوغ" class="menu-img">
+                    </div>
+                    <div class="menu-content">
+                        <h3 class="menu-item-title">دوغ محلی</h3>
+                        <p class="menu-item-desc">دوغ سرد و گازدار با طعم نعناع تازه، بهترین همراه برای غذاهای لذیذ ما.
+                        </p>
+                        <div class="menu-price">
+                            <i class="fas fa-tag"></i>
+                            20 افغانی
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش تماس -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">تماس با мы</h2>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>آدرس رستوران</h3>
+                            <p>شهر مزارشریف چهار راهی ذبیح الله شهید(سرک حلقوی)، افغانستان</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>تلفن تماس</h3>
+                            <p>0788409988</p>
+                            <p>0796163636</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>ساعات کاری</h3>
+                            <p>شنبه الی پنجشنبه: 6 صبح - 10 شب</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">نام کامل</label>
+                            <input type="text" id="name" class="form-control" placeholder="نام خود را وارد کنید"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">شماره تماس</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="شماره تماس خود را وارد کنید"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">پیام</label>
+                            <textarea id="message" class="form-control" placeholder="پیام خود را وارد کنید"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn">ارسال پیام</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش توسعه‌دهنده - حالت افقی -->
+    <section class="developer-section">
+        <div class="container">
+            <div class="developer-container">
+                <div class="developer-info">
+                    <div class="developer-avatar">MJ</div>
+                    <div class="developer-details">
+                        <div class="developer-name">طراحی و توسعه توسط محمد احسان جاوید</div>
+                        <div class="developer-contact">
+                            <a href="tel:0795669831">
+                                <i class="fas fa-phone"></i>
+                                ۰۷۹۵۶۶۹۸۳۱
+                            </a>
+                            <a href="https://www.facebook.com/share/16yA3SdJu9/?mibextid=wwXIfr" target="_blank">
+                                <i class="fab fa-facebook"></i>
+                                Facebook
+                            </a>
+                            <a href="https://wa.me/93795669831?text=%D8%B3%D9%84%D8%A7%D9%85%20%D9%88%D9%82%D8%AA%20%D8%A8%D8%AE%DB%8C%D8%B1"
+                                target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                                WhatsApp
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-instagram"></i>
+                                Instagram
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-telegram"></i>
+                                Telegram
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- فوتر -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <i class="fas fa-utensils"></i>
+                        احسان پلو
+                    </div>
+                    <p class="footer-desc">رستورانت احسان پلو با ارائه غذاهای اصیل افغانی، میزبان مهمانان گرامی در شهر
+                        مزارشریف است.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="footer-title">لینک های سریع</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">خانه</a></li>
+                        <li><a href="#menu">منو</a></li>
+                        <li><a href="#contact">تماس</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer-title">ساعات کاری</h3>
+                    <ul class="footer-links">
+                        <li>شنبه الی پنجشنبه: 6 صبح - 10 شب</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>© 2023 رستوران احسان پلو. تمام حقوق محفوظ است.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // منوی موبایل
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+
+            if (navMenu.classList.contains('active')) {
+                menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+
+        // بستن منو با کلیک روی لینک‌ها
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // اسکرول نرم
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // فرم تماس
+        const contactForm = document.getElementById('contactForm');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('پیام شما با موفقیت ارسال شد. به زودی با شما تماس خواهیم گرفت.');
+            contactForm.reset();
+        });
+    </script>
+</body>
+
+</html>
