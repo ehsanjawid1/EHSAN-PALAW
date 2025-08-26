@@ -94,11 +94,11 @@
             cursor: pointer;
         }
 
-        /* بخش اصلی */
+        /* بخش اصلی - بازنویسی شده برای موبایل */
         .hero {
-            height: 90vh;
+            height: 100vh;
             background:
-                linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
                 url('https://i.postimg.cc/YS1PDYjP/atiq3.jpg') no-repeat center center/cover;
             display: flex;
             align-items: center;
@@ -106,24 +106,28 @@
             text-align: center;
             color: white;
             margin-top: 60px;
+            padding: 20px;
         }
-
-
-
 
         .hero-content {
             max-width: 800px;
-            padding: 0 20px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
         }
 
         .hero-title {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .hero-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 25px;
+            line-height: 1.6;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
 
         .btn {
@@ -135,23 +139,25 @@
             text-decoration: none;
             font-weight: bold;
             transition: var(--transition);
+            border: 2px solid var(--accent);
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(38, 0, 127, 0.4);
-            background: var(--secondary);
+            box-shadow: 0 5px 15px rgba(212, 0, 0, 0.4);
+            background: transparent;
+            color: white;
         }
 
         /* بخش منو */
         .menu-section {
-            padding: 100px 0;
+            padding: 80px 0;
             background: #fffdfd;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin-bottom: 40px;
             color: var(--primary);
             position: relative;
@@ -186,7 +192,9 @@
             transform: translateY(-5px);
         }
 
+        /* تغییر اصلی: تنظیم سایز قالب عکس */
         .menu-img-container {
+            width: 100%;
             height: 250px;
             overflow: hidden;
             position: relative;
@@ -489,16 +497,31 @@
                 display: block;
             }
 
+            /* بخش هیرو برای موبایل */
+            .hero {
+                height: 80vh;
+                margin-top: 50px;
+                padding: 15px;
+            }
+
+            .hero-content {
+                padding: 15px;
+                background: rgba(0, 0, 0, 0.6);
+            }
+
             .hero-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
+                margin-bottom: 12px;
             }
 
             .hero-subtitle {
-                font-size: 1rem;
+                font-size: 0.95rem;
+                margin-bottom: 20px;
             }
 
-            .menu-img-container {
-                height: 200px;
+            .btn {
+                padding: 10px 25px;
+                font-size: 0.9rem;
             }
 
             .menu-grid {
@@ -523,13 +546,18 @@
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+            
+            /* تنظیمات برای موبایل */
+            .menu-img-container {
+                height: 200px;
             }
         }
 
         @media (max-width: 480px) {
             .hero-title {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
 
             .hero-subtitle {
@@ -542,7 +570,7 @@
             }
 
             .section-title {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
 
             .menu-item-title {
@@ -558,6 +586,11 @@
             .developer-contact a {
                 width: 100%;
                 justify-content: center;
+            }
+            
+            /* هدر در موبایل */
+            .logo {
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -586,7 +619,7 @@
         </div>
     </header>
 
-    <!-- بخش اصلی -->
+    <!-- بخش اصلی - بهبود یافته برای موبایل -->
     <section class="hero" id="home">
         <div class="hero-content">
             <h1 class="hero-title">رستورانت احسان پلو</h1>
@@ -603,7 +636,7 @@
                 <!-- قابلی پلو -->
                 <div class="menu-item">
                     <div class="menu-img-container">
-                        <img src="https://i.postimg.cc/WpQT4K7s/image.jpg" alt="قابلی پلو" class="menu-img">
+                        <img src="https://i.postimg.cc/WpQT4K7s/image.jpg" alt="ماهیچه پلو مخصوص" class="menu-img" loading="lazy">
                     </div>
                     <div class="menu-content">
                         <h4 class="menu-item-title">ماهیچه پلو مخصوص</h4>
@@ -620,7 +653,7 @@
                 <div class="menu-item">
                     <div class="menu-img-container">
                         <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
-                            alt="کباب گوشت" class="menu-img">
+                            alt="کباب گوشت مخصوص" class="menu-img" loading="lazy">
                     </div>
                     <div class="menu-content">
                         <h3 class="menu-item-title">کباب گوشت مخصوص</h3>
@@ -636,14 +669,14 @@
                 <!-- کباب شامی -->
                 <div class="menu-item">
                     <div class="menu-img-container">
-                        <img src="https://i.postimg.cc/28xDk59f/image.png" alt="کباب شامی" class="menu-img">
+                        <img src="https://i.postimg.cc/28xDk59f/image.png" alt="کباب شامی مخصوص" class="menu-img" loading="lazy">
                     </div>
                     <div class="menu-content">
                         <h3 class="menu-item-title">کباب شامی مخصوص</h3>
                         <p class="menu-item-desc">امروز نوبت کباب شامی داغ و خوش‌مزه است 🍢🔥
 
                             با گوشت تازه، پیاز و مساله اصیل وطنی 🇦🇫👌
-                            روی آتش ذغالی سرخ میشه.  😍.</p>
+                            روی آتش ذغالی سرخ میشه، بویش آدم ره دیوانه می‌سازه 😍.</p>
                         <div class="menu-price">
                             <i class="fas fa-tag"></i>
                             170 افغانی
@@ -655,13 +688,13 @@
                 <div class="menu-item">
                     <div class="menu-img-container">
                         <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-                            alt="کباب شامی" class="menu-img">
+                            alt="کباب مرغ مخصوص" class="menu-img" loading="lazy">
                     </div>
                     <div class="menu-content">
                         <h3 class="menu-item-title">کباب مرغ مخصوص</h3>
-                        <p class="menu-item-desc"> کباب مرغ ذغالی آماده داریم 🍗🔥
+                        <p class="menu-item-desc">مروز کباب مرغ ذغالی آماده داریم 🍗🔥
 
-                            مرغ تازه، مخلوط شده با مساله مخصوص وطنی 🇦🇫👌
+                            مرغ تازه، مرینیت شده با مساله مخصوص وطنی 🇦🇫👌
                             روی آتش ذغال سرخ میشه، 😍
 
                             👉 یک‌بار امتحان کو، همیشه یاد می‌کنی!</p>
@@ -675,7 +708,7 @@
                 <!-- فانتا -->
                 <div class="menu-item">
                     <div class="menu-img-container">
-                        <img src="https://i.postimg.cc/LsZRpFqd/FANTA1.png" alt="فانتا" class="menu-img">
+                        <img src="https://i.postimg.cc/LsZRpFqd/FANTA1.png" alt="فانتا" class="menu-img" loading="lazy">
                     </div>
                     <div class="menu-content">
                         <h3 class="menu-item-title">فانتا</h3>
@@ -690,11 +723,11 @@
                 <!-- سوپر کولا / SUPER COLA -->
                 <div class="menu-item">
                     <div class="menu-img-container">
-                        <img src="https://i.postimg.cc/j2dVnbyv/super.jpg" alt="Super Cola" class="menu-img">
+                        <img src="https://i.postimg.cc/j2dVnbyv/super.jpg" alt="سوپر کولا" class="menu-img" loading="lazy">
                     </div>
                     <div class="menu-content">
                         <h3 class="menu-item-title">سوپر کولا | SUPER COLA</h3>
-                        <p class="menu-item-desc">نوشابه گازدار سرد با طعم اصلی و منحصر به فرد.</p>
+                        <p class="menu-item-desc">نوشابه گازدار خنک با طعم اصلی و منحصر به فرد.</p>
                         <div class="menu-price">
                             <i class="fas fa-tag"></i>
                             30 افغانی
@@ -705,11 +738,11 @@
                 <!-- گلدن لایف / GFOLDEN LIFE -->
                 <div class="menu-item">
                     <div class="menu-img-container">
-                        <img src="https://i.postimg.cc/1XZtkfhX/golden.jpg" alt="Golden Life" class="menu-img">
+                        <img src="https://i.postimg.cc/1XZtkfhX/golden.jpg" alt="گلدن لایف" class="menu-img" loading="lazy">
                     </div>
                     <div class="menu-content">
                         <h3 class="menu-item-title">گلدن لایف | GFOLDEN LIFE</h3>
-                        <p class="menu-item-desc">نوشابه گازدار سرد با طعم لیمو و مرکبات.</p>
+                        <p class="menu-item-desc">نوشابه گازدار خنک با طعم لیمو و مرکبات.</p>
                         <div class="menu-price">
                             <i class="fas fa-tag"></i>
                             30 افغانی
@@ -717,15 +750,14 @@
                     </div>
                 </div>
 
-
                 <!-- آب معدنی / Mineral Water -->
                 <div class="menu-item">
                     <div class="menu-img-container">
-                        <img src="https://i.postimg.cc/d15HXTTm/maihan.jpg" alt="Mineral Water" class="menu-img">
+                        <img src="https://i.postimg.cc/d15HXTTm/maihan.jpg" alt="آب معدنی" class="menu-img" loading="lazy">
                     </div>
                     <div class="menu-content">
                         <h3 class="menu-item-title">آب معدنی | Mineral Water</h3>
-                        <p class="menu-item-desc">آب معدنی سرد و گوارا .</p>
+                        <p class="menu-item-desc">آب معدنی خنک و گوارا در بطری.</p>
                         <div class="menu-price">
                             <i class="fas fa-tag"></i>
                             10 افغانی
@@ -733,15 +765,14 @@
                     </div>
                 </div>
 
-
                 <!-- دوغ -->
                 <div class="menu-item">
                     <div class="menu-img-container">
-                        <img src="https://i.postimg.cc/1tByWcn4/DOGH1.jpg" alt="دوغ" class="menu-img">
+                        <img src="https://i.postimg.cc/1tByWcn4/DOGH1.jpg" alt="دوغ محلی" class="menu-img" loading="lazy">
                     </div>
                     <div class="menu-content">
                         <h3 class="menu-item-title">دوغ محلی</h3>
-                        <p class="menu-item-desc">دوغ سرد و گازدار با طعم نعناع تازه، بهترین همراه برای غذاهای لذیذ ما.
+                        <p class="menu-item-desc">دوغ خنک و گازدار با طعم نعناع تازه، بهترین همراه برای غذاهای لذیذ ما.
                         </p>
                         <div class="menu-price">
                             <i class="fas fa-tag"></i>
@@ -756,7 +787,7 @@
     <!-- بخش تماس -->
     <section class="contact" id="contact">
         <div class="container">
-            <h2 class="section-title">تماس با мы</h2>
+            <h2 class="section-title">تماس با ما</h2>
 
             <div class="contact-grid">
                 <div class="contact-info">
